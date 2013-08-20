@@ -111,5 +111,3 @@ tmux select-window -t development:1
 
 chmod +x file_name  --  to create  a shell script for tmux and run using ./filename
 
-
-
