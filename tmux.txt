@@ -1,0 +1,115 @@
+TMUX basics
+
+Startig tmux
+  $ tmux
+
+Exiting tmux
+  $ exit
+
+Creating named session which can be used we want the session to run the background
+  $ tmux new-session -s session-name
+     OR
+  $ tmux new -s session-name
+
+  Command Prefix 	: CRTL-b is way of telling the next command is for tmux and not the application its running
+
+
+Attaching  
+
+ In normal terminal if we close the terminal all the session would expire whereas in tmux its not the case.
+ Any program we start in session will be running .
+
+ We can see the list of tmux sessions running
+
+  $ tmux list-sessions 
+    OR
+  $ tmux ls (if no name is provided the list session is named by numbers)
+
+
+  Detaching from the session using (CRTL-b d)
+
+We attach back to the session 
+
+  $ tmux attach  (if only one session is running)
+
+  $ tmux attach -t session-name 
+
+We can kill the session by 
+
+  $ exit (within the tmux session )
+    OR
+  $ tmux kill-session -t session-name
+
+  It ask for confirmation before killing the window
+  $ CRTL-b &    
+
+
+
+
+  Creating a new window
+    CRTL-b c
+
+  Renaming window from default name , default name of the window will be the application its running 
+  CRTL-b ,
+
+
+  To navigate around the windows windows using
+    CRTL-b n       (next)
+    CRTL-b p       (previous)
+    CRTL-b 0-9     (if you have more the windows)
+    CRTL-b f       (to find the window by its name )
+    CRTL-b w       (dsiplays visual menu of windows and you can select them)
+
+
+Panes : In Tmux we can divide a single session in
+
+Vertical split
+  CRTL-b %
+
+Horizontal split
+ CRTL-b "
+
+ We can navigate around the window using
+
+ CRTL-b o
+   OR
+ CRTL-b arrow keys (UP , DOWN , LEFT , RIGHT)
+
+
+
+Configuring Tmux
+
+By default, tmux looks for configuration settings in two places. It first looks in /etc/tmux.conf for a system-wide configuration. It then looks for a file called .tmux.conf in the current user’s home directory
+
+set -g prefix C-a
+
+- g is global which set the option for all tmux session 
+Now the prefix is CTRL-a
+
+set -g base-index 1
+
+the window index will start at 1 when creating multiple window session
+
+pane-base-index
+
+We can target the pane using the format [session_name][window][pane] eg. development:1.2
+
+
+tmux send-keys -t development:1.2 'cd ~/devproject' C-m
+
+This will open the devproject in second pane
+
+Below command will create new window with name console and next line will go the path in the second window we have created
+
+tmux new-window -n console -t development 
+tmux send-keys -t development:2 'cd ~/path' C-m
+
+select the window when we start the session
+
+tmux select-window -t development:1
+
+
+chmod +x file_name  --  to create  a shell script for tmux and run using ./filename
+
+
+
