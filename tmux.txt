@@ -111,3 +111,5 @@ tmux select-window -t development:1
 
 chmod +x file_name  --  to create  a shell script for tmux and run using ./filename
 
+PREFIX-! pops out your pane to a window
+PREFIX-s to see list of tmux session and PREFIX-( PREFIX-) to navigate around the sessions

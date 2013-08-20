@@ -1,0 +1,9 @@
+project_name: desidime_1.0
+project_root: ~/github/desidime_1.0/
+tabs:
+  - editor:
+    layout: main-horizontal
+    panes:
+      - rails s mongrel
+      - #empty,will just plain bash
+  - console: #empty
