@@ -1,0 +1,22 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+:au FocusLost * :wa
+call pathogen#infect()
+call pathogen#helptags()
+"Tabs
+set ts=4 sts=4 sw=4 expandtab
+
+
+"Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'vim-ruby/vim-ruby'
