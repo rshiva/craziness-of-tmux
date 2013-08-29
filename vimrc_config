@@ -1,24 +1,37 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+filetype off
+
+
+set autoindent
+set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
+set backspace=2␣
+set clipboard=unnamed                                        " yank and paste with the system clipboard
+set directory-=.                                             " don't store swapfiles in the current directory
+set expandtab                                                " expand tabs to spaces
+set ignorecase                                               " case-insensitive search
+set incsearch                                                " search as you type
+set laststatus=2                                             " always show statusline
+set list                                                     " show trailing whitespace
+set number                                                   " show line numbers
+set ruler                                                    " show where you are
+set scrolloff=3                                              " show context above/below cursorline
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
+
+
+set background=dark
+colorscheme vimbrant
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ackprg = 'ag --nogroup --nocolor --column'
-:au FocusLost * :wa
-call pathogen#infect()
-call pathogen#helptags()
-"Tabs
-set ts=4 sts=4 sw=4 expandtab
-
-
-"Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'vim-ruby/vim-ruby'
-
-
+set smartindent
+set expandtab
+let g:ctrlp_map = '<c-p>'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+:au FocusLost * :wa
+call pathogen#helptags()
+"Tabs
