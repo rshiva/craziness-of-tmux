@@ -25,8 +25,15 @@ colorscheme vimbrant
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+ 
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails.git'
+
 
 set smartindent
 set expandtab
